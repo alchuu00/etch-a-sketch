@@ -12,7 +12,8 @@ body {
     background: linear-gradient(45deg, var(--bg-body1), var(--bg-body2));
     margin: 0;
     padding: 0;
-    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
     color: var(--text-primary);
 }
 
@@ -20,23 +21,19 @@ body::-webkit-scrollbar {
     width: 0.25rem;
 }
 
-body::-webkit-scrollbar-track {
+body::-webkit-scrollbar-thumb {
     background: #1e1e24;
 }
 
-body::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-track {
     background: #6649b8;
-}
-
-#main {
-    margin-right: 5rem;
 }
 
 .navbar {
     width: 5rem;
     position: fixed;
     background-color: var(--bg-primary);
-    transition: width 200ms ease;
+    transition: width 500ms ease;
 }
 
 .nav-logo {
@@ -57,11 +54,12 @@ body::-webkit-scrollbar-thumb {
 
 .navbar:hover {
     width: 16rem;
+    transition: 500ms;
 }
 
 .nav-logo svg {
     transform: rotate(0deg);
-    transition:300ms;
+    transition: 300ms;
 }
 
 .navbar:hover .nav-logo svg {
@@ -83,8 +81,6 @@ body::-webkit-scrollbar-thumb {
     padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 svg {
@@ -95,7 +91,7 @@ svg {
 
 li {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 5rem;
     width: 100%;
