@@ -38,25 +38,19 @@ function chooseColor() {
   })
 }
 
+function randNum() {
+  return Math.floor((Math.random() * 255) + 1);
+}
+
 // FIX THIS
 function rainbowColorToggle() {
   const rainbow = document.getElementById("rainbow");
-  let isActive = false;
-
+// SET TIMEOUT OR SOMETHING SO IT GENERATES RANDOM NUM EVERYTIME
   rainbow.addEventListener("click", function () {
-    isActive = !isActive;
-    if (isActive) {
-      rainbow.style.backgroundColor = "#141414";
-      canvas.addEventListener('mousemove', () => {
-        let r = Math.floor((Math.random() * 255) + 1);
-        let g = Math.floor((Math.random() * 255) + 1);
-        let b = Math.floor((Math.random() * 255) + 1);
-        color = `rgb(${r},${g},${b})`;
-      })
-    } else {
-      rainbow.style.backgroundColor = "#1e1e24";
-      // COLOR SHOULD BE SAME AS CHOOSEN ONE
-    }
+    let r = randNum();
+    let g = randNum();
+    let b = randNum();
+    color = `rgb(${r},${g},${b})`;
   });
 }
 
