@@ -62,9 +62,17 @@ function resetDrawing() {
 }
 
 function eraseDrawing() {
+  let eraseToggle = false
   let erase = document.getElementById('erase')
   erase.addEventListener('click', () => {
+    eraseToggle = !eraseToggle;
+    if (eraseToggle) {
+    erase.style.backgroundColor = "#141414";
     color = 'cornsilk'
+    } else {
+      color = choice.value
+      erase.style.backgroundColor = "#1e1e24";
+    }
   })
 }
 
