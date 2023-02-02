@@ -2,10 +2,10 @@
     font-size: 18px;
     font-family: 'Montserrat', sans-serif;
     --text-primary: #fff;
-    --bg-primary: #1e1e24;
-    --bg-secondary: #141414;
-    --bg-body1: #061de3;
-    --bg-body2: #e306ca;
+    --bg-primary: #ECA869;
+    --bg-secondary: #B5D5C5;
+    --bg-body: #B08BBB;
+    --bg-body2: #B08BBB;
 }
 
 body {
@@ -84,12 +84,12 @@ li {
 
 .nav-item:hover {
     background-color: var(--bg-secondary);
-    color: var(--bg-body2);
+    color: var(--text-primary);
     transition: 300ms ease-in-out;
 }
 
 .nav-item:hover svg {
-    fill: var(--bg-body2);
+    fill: var(--text-primary);
     transition: 300ms ease-in-out;
 }
 
@@ -107,7 +107,7 @@ li {
 }
 
 .main {
-    background: linear-gradient(45deg, var(--bg-body1), var(--bg-body2));
+    background-color: var(--bg-body);
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(4, 1fr);
@@ -118,7 +118,7 @@ li {
 }
 
 .canvas {
-    background-color: cornsilk;
+    background-color: #F5F5DC;
     margin-top: 5rem;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }

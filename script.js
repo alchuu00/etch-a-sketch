@@ -15,7 +15,7 @@ function setGrid(gridSize = 16) {
 
   for (let i = 0; i < gridSize * gridSize; i++) {
     const square = document.createElement("div");
-    square.style.backgroundColor = "cornsilk";
+    square.style.backgroundColor = "#F5F5DC";
     square.style.border = "0.01px solid lightgray";
     canvas.appendChild(square);
 
@@ -38,19 +38,27 @@ function chooseColor() {
   })
 }
 
-function randNum() {
-  return Math.floor((Math.random() * 255) + 1);
-}
-
-// FIX THIS
-function rainbowColorToggle() {
-  const rainbow = document.getElementById("rainbow");
-// SET TIMEOUT OR SOMETHING SO IT GENERATES RANDOM NUM EVERYTIME
-  rainbow.addEventListener("click", function () {
-    let r = randNum();
-    let g = randNum();
-    let b = randNum();
-    color = `rgb(${r},${g},${b})`;
+function rainbowColor() {
+  let rainbowToggle = false
+  let rainbow = document.getElementById('rainbow')
+  rainbow.addEventListener('click', () => {
+    rainbowToggle = !rainbowToggle;
+    if (rainbowToggle) {
+      console.log('rainbow ON')
+      rainbow.style.backgroundColor = "#B5D5C5";
+      canvas.addEventListener('mousemove', () => {
+        let r = Math.floor((Math.random() * 255) + 1);
+        let g = Math.floor((Math.random() * 255) + 1);
+        let b = Math.floor((Math.random() * 255) + 1);
+        color = `rgb(${r},${g},${b})`;
+      })
+    } else {
+      console.log('rainbow OFF')
+      canvas.addEventListener('mousemove', () => {
+      color = choice.value;
+      })
+      rainbow.style.backgroundColor = "#ECA869";
+    }
   });
 }
 
@@ -67,17 +75,18 @@ function eraseDrawing() {
   erase.addEventListener('click', () => {
     eraseToggle = !eraseToggle;
     if (eraseToggle) {
-    erase.style.backgroundColor = "#141414";
-    color = 'cornsilk'
+      erase.style.backgroundColor = "#B5D5C5";
+      color = '#F5F5DC'
     } else {
       color = choice.value
-      erase.style.backgroundColor = "#1e1e24";
+      erase.style.backgroundColor = "#ECA869";
     }
   })
 }
 
 function draw(square) {
   chooseColor()
+  rainbowColor()
   let isMouseDown = false;
 
   canvas.addEventListener('mousedown', () => {
@@ -107,14 +116,13 @@ function gridToggle(square) {
   grid.addEventListener('click', () => {
     isActive = !isActive;
     if (isActive) {
-      grid.style.backgroundColor = "#141414";
+      grid.style.backgroundColor = "#B5D5C5";
       square.style.border = "0";
     } else {
-      grid.style.backgroundColor = "#1e1e24";
+      grid.style.backgroundColor = "#ECA869";
       square.style.border = "0.01px solid lightgray";
     }
   })
-
 }
 
 window.onload = () => {
@@ -122,6 +130,5 @@ window.onload = () => {
   getSliderValue()
   resetDrawing()
   eraseDrawing()
-  rainbowColorToggle()
   gridToggle()
 }
