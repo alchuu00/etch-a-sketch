@@ -76,9 +76,13 @@ function eraseDrawing() {
     eraseToggle = !eraseToggle;
     if (eraseToggle) {
       erase.style.backgroundColor = "#B5D5C5";
-      color = '#F5F5DC'
+      canvas.addEventListener('mousemove', () => {
+        color = '#F5F5DC';
+        })
     } else {
-      color = choice.value
+      canvas.addEventListener('mousemove', () => {
+        color = choice.value;
+        })
       erase.style.backgroundColor = "#ECA869";
     }
   })
@@ -87,6 +91,7 @@ function eraseDrawing() {
 function draw(square) {
   chooseColor()
   rainbowColor()
+  eraseDrawing()
   let isMouseDown = false;
 
   canvas.addEventListener('mousedown', () => {
